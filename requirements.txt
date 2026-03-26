@@ -1,10 +1,21 @@
+# ── Core ML ──
 torch
 torchvision
 Pillow
-fastapi
-uvicorn
-python-multipart
+numpy
 scikit-learn
+
+# ── Visualization & Logging ──
 matplotlib
 seaborn
 tqdm
+tensorboard
+
+# ── API (for later phases) ──
+fastapi
+uvicorn
+python-multipart
+
+# ── Optional: ONNX export ──
+onnx
+onnxruntime
