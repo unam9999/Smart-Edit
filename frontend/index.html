@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>VisionSort — AI Image Classification</title>
+<meta name="description" content="AI-powered image classification pipeline. Upload, classify, apply preset filters, and download sorted images instantly."/>
+<link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<!-- ═══════════════ NAV ═══════════════ -->
+<nav>
+  <div class="nav-logo">Vision<span>Sort</span></div>
+  <ul class="nav-links">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#chaos">How It Works</a></li>
+    <li><a href="#features">Features</a></li>
+  </ul>
+  <button class="nav-cta" id="nav-launch">Launch App →</button>
+</nav>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section id="hero">
+  <div class="hero-grid"></div>
+  <h1 class="hero-title">VISION<span class="dot">.</span>SORT</h1>
+  <p class="hero-sub">AI-Powered Image Classification Pipeline</p>
+  <button class="hero-cta">Start Sorting →</button>
+  <div class="hero-line"></div>
+</section>
+
+<!-- ═══════════════ CHAOS ═══════════════ -->
+<section class="scroll-section" id="chaos">
+  <div class="chaos-wrap">
+    <div class="chaos-text">
+      <div class="section-label">01 — The Problem</div>
+      <h2 class="section-heading">Your gallery<br/>is chaos<span style="color:var(--accent)">.</span></h2>
+      <p class="section-text">Thousands of images. No structure. No order. Blurred shots mixed with portraits, landscapes buried under screenshots. Finding anything takes forever.</p>
+    </div>
+    <div class="chaos-grid">
+      <div class="chaos-tile">🌫️</div>
+      <div class="chaos-tile">👤</div>
+      <div class="chaos-tile">🏔️</div>
+      <div class="chaos-tile">🐕</div>
+      <div class="chaos-tile">📸</div>
+      <div class="chaos-tile">🌫️</div>
+      <div class="chaos-tile">🚗</div>
+      <div class="chaos-tile">👤</div>
+      <div class="chaos-tile">🏛️</div>
+      <div class="chaos-tile">📱</div>
+      <div class="chaos-tile">🐾</div>
+      <div class="chaos-tile">🌫️</div>
+      <div class="chaos-tile">👤</div>
+      <div class="chaos-tile">🎨</div>
+      <div class="chaos-tile">🌊</div>
+      <div class="chaos-tile">📸</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ CLARITY ═══════════════ -->
+<section class="scroll-section" id="clarity">
+  <div class="clarity-wrap">
+    <div class="clarity-text">
+      <div class="section-label">02 — The Solution</div>
+      <h2 class="section-heading">We bring<br/>order<span style="color:var(--accent)">.</span></h2>
+      <p class="section-text">VisionSort uses EfficientNet-B0 and OpenCV to instantly classify every image — faces, animals, landscapes, aesthetic shots — into clean, labeled folders.</p>
+    </div>
+    <div class="clarity-grid">
+      <div class="clarity-tile cat-people">People</div>
+      <div class="clarity-tile cat-people">People</div>
+      <div class="clarity-tile cat-people">People</div>
+      <div class="clarity-tile cat-people">People</div>
+      <div class="clarity-tile cat-animals">Animal</div>
+      <div class="clarity-tile cat-animals">Animal</div>
+      <div class="clarity-tile cat-animals">Animal</div>
+      <div class="clarity-tile cat-animals">Animal</div>
+      <div class="clarity-tile cat-aesthetic">Aesth</div>
+      <div class="clarity-tile cat-aesthetic">Aesth</div>
+      <div class="clarity-tile cat-aesthetic">Aesth</div>
+      <div class="clarity-tile cat-aesthetic">Aesth</div>
+      <div class="clarity-tile cat-blurred">Blur</div>
+      <div class="clarity-tile cat-blurred">Blur</div>
+      <div class="clarity-tile cat-blurred">Blur</div>
+      <div class="clarity-tile cat-blurred">Blur</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ FEATURES ═══════════════ -->
+<section id="features">
+  <div class="features-inner">
+    <div class="section-label" style="text-align:center">03 — Capabilities</div>
+    <h2 class="section-heading" style="text-align:center">Built for precision<span style="color:var(--accent)">.</span></h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">⊞</div>
+        <div class="feature-title">AI Classification</div>
+        <p class="feature-desc">EfficientNet-B0 with ImageNet weights. Blur detection via Laplacian variance. Face detection via Haar cascades. Multi-signal pipeline.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">◈</div>
+        <div class="feature-title">Smart Filters</div>
+        <p class="feature-desc">Per-folder preset filters — portrait smoothing, landscape HDR, automotive clarity — applied at the pixel level using OpenCV and PIL.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">↓</div>
+        <div class="feature-title">Instant Export</div>
+        <p class="feature-desc">Processed images delivered as a sorted ZIP archive with category sub-folders and a CSV manifest. Upload → Classify → Download.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ APP ═══════════════ -->
+<section id="app-section">
+  <div class="app-inner">
+    <div class="section-label">04 — Launch</div>
+    <h2 class="section-heading" style="margin-bottom:32px">Start sorting<span style="color:var(--accent)">.</span></h2>
+
+    <!-- Phase indicator -->
+    <div class="phases">
+      <div class="phase-btn active" id="ph1-btn">① Upload & Classify</div>
+      <div class="phase-btn" id="ph2-btn">② Presets & Download</div>
+    </div>
+
+    <!-- Phase 1 -->
+    <div id="phase1" style="display:flex;flex-direction:column">
+      <div id="drop-zone" role="button" tabindex="0" aria-label="Upload images">
+        <div class="drop-icon">⊕</div>
+        <h2>Drop images here</h2>
+        <p>JPEG · PNG · WebP · up to 100 images</p>
+        <label for="file-input"><span class="btn-browse">Browse Files</span></label>
+        <input type="file" id="file-input" accept="image/*" multiple/>
+      </div>
+
+      <section id="file-list-sec" aria-live="polite">
+        <h3>Selected — <span id="file-count">0</span> image(s)</h3>
+        <div id="file-chips"></div>
+      </section>
+
+      <div id="action-row" role="group">
+        <div class="count-badge"><strong id="action-count">0</strong> images ready</div>
+        <button class="btn-primary" id="btn-classify">
+          <span id="bc-icon">→</span>
+          <span id="bc-text">CLASSIFY</span>
+        </button>
+        <button class="btn-ghost" id="btn-clear">Clear</button>
+      </div>
+
+      <section id="progress-sec" aria-live="polite">
+        <h3>Processing...</h3>
+        <div class="prog-wrap"><div class="prog-fill" id="prog-fill"></div></div>
+        <div id="prog-label">Sending to server...</div>
+      </section>
+    </div>
+
+    <!-- Phase 2 -->
+    <div id="phase2" style="display:none">
+      <section id="preset-sec">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:10px">
+          <div>
+            <h3>Select preset per folder</h3>
+            <p class="sub">Choose a filter for each category, then download.</p>
+          </div>
+          <button class="btn-ghost" id="btn-back">← Back</button>
+        </div>
+        <div id="folder-cards"></div>
+        <button id="btn-process">
+          <span id="bp-icon">↓</span>
+          <span id="bp-text">DOWNLOAD ZIP</span>
+        </button>
+      </section>
+
+      <section id="results-sec">
+        <h3>Classification Results</h3>
+        <div id="summary-cards"></div>
+        <div class="tbl-wrap">
+          <table aria-label="Classification results">
+            <thead>
+              <tr><th>#</th><th>Filename</th><th>Category</th><th>Confidence</th><th>Label</th></tr>
+            </thead>
+            <tbody id="results-tbody"></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+  VisionSort · EfficientNet-B0 · OpenCV · FastAPI
+</footer>
+
+<div id="toast" role="alert"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
