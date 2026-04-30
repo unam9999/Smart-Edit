@@ -2,7 +2,9 @@
    VisionSort — Application Logic
    ═══════════════════════════════════════════════════════════ */
 
-const API = 'http://localhost:8000';
+const API = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+  ? 'http://localhost:8000'
+  : 'https://visionsort-backend.up.railway.app'; // Change this after deploying your backend
 let selectedFiles = [];
 let sessionId = null;
 let classificationData = null;

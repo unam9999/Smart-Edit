@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "public": true,
+  "name": "visionsort",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/frontend/$1" }
+  ],
+  "cleanUrls": true
+}
